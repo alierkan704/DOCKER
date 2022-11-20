@@ -1,0 +1,30 @@
+Komut Sistemi:
+docker pull ubuntu:18.04 (ubuntu:18.04 versiyonu yükleyelim)
+docker run -it ubuntu:18.04(ubuntunun içine girelim)
+apt-get update(İşletim sistemindeki güncellemeleri alalım)
+apt-get install curl -y
+curl -sL https://deb.nodesource.com/setup_10.x | bash (İstediğimiz versiyon nodejs indirilmesi)
+apt-get install nodejs -y
+cd opt/
+mkdir node-app
+cd node-app/
+echo 'console.log("nodejsapp from ubuntu...");' (Kaynak kodunu index.js dosyasını oluşturup içine yazalım.)
+cat index.js (Kaynak kodunu içerisinde görebiliriz.)
+node index.js
+
+VS CODE: Docker tarafından tanınan Dockerfile adlı bir dosya açıyoruz ve içine aşağıdaki komutları yazalım;
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install curl -y
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get install nodejs -y
+WORKDIR /opt/node-app (Komutların çalışacağı klasörü belirttik)
+COPY . /opt/node-app/ (Herşeyi opt içerisindeki node-app'e aktar)
+CMD ["node","index.js"];
+
+Komut Sistemi:
+docker build . -t simple-node-app (Adını değiştirdik)
+
+
+
+

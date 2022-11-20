@@ -1,3 +1,5 @@
+Bir ubuntu image'i içine Nodejs kuran dockerfile
+
 Komut Sistemi:
 docker pull ubuntu:18.04 (ubuntu:18.04 versiyonu yükleyelim)
 docker run -it ubuntu:18.04(ubuntunun içine girelim)
